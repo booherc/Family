@@ -74,3 +74,8 @@ ul a:hover {
     .input-field .prefix.active {
         color: #1976D2 !important;
     }
+
+    .materialboxed {
+        max-height: 500px !important;
+        max-width: 500px !important;
+    }

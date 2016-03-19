@@ -100,6 +100,15 @@ namespace Family.Controllers
         }
 
         //
+        // GET: /Manage/Users
+        public ActionResult Users()
+        {
+            var users = UserManager.Users.Where(x => x.Id != "").ToList();
+
+            return View(users);
+        }
+
+        //
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {
