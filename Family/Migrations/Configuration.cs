@@ -18,6 +18,11 @@ namespace Family.Migrations
 
         protected override void Seed(Family.Models.ApplicationDbContext context)
         {
+
+            // to restart and toss out everything you have done do this
+            // Update-Database –TargetMigration: $InitialDatabase
+            // update-database
+            // 
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
