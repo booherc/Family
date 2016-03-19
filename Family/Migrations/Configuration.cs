@@ -37,9 +37,6 @@ namespace Family.Migrations
                 };
 
                 users.ForEach(u => userManager.Create(u, "212Mayday!"));
-
-                //var user = new Models.ApplicationUser { UserName = "maybooher@gmail.com", Email = "maybooher@gmail.com", PhoneNumber = "8018857662" };
-                //userManager.Create(user, "212Mayday!");
             }
 
         }
