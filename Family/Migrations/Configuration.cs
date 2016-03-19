@@ -30,15 +30,18 @@ namespace Family.Migrations
                 var userManager = new UserManager<Models.ApplicationUser>(userStore);
                 List<Models.ApplicationUser> users = new List<Models.ApplicationUser>
                 {
-                  new Models.ApplicationUser { UserName = "maybooher@gmail.com", PhoneNumber = "8018857662"},
-                  new Models.ApplicationUser { UserName = "booher.cody@gmail.com", PhoneNumber = "4804351882"},
-                  new Models.ApplicationUser { UserName = "brittbooher@cox.net", PhoneNumber = "4802209995"},
-                  new Models.ApplicationUser { UserName = "brockbooher@cox.net", PhoneNumber = "480220614"}
+                  new Models.ApplicationUser { UserName = "maybooher@gmail.com", Email = "maybooher@gmail.com", PhoneNumber = "8018857662"},
+                  new Models.ApplicationUser { UserName = "booher.cody@gmail.com", Email = "booher.cody@gmail.com", PhoneNumber = "4804351882"},
+                  new Models.ApplicationUser { UserName = "brittbooher@cox.net", Email = "brittbooher@cox.net", PhoneNumber = "4802209995"},
+                  new Models.ApplicationUser { UserName = "brockbooher@cox.net", Email = "brockbooher@cox.net", PhoneNumber = "480220614"}
                 };
 
-                users.ForEach(async u => await userManager.CreateAsync(u, "212Mayday!"));
+                users.ForEach(u => userManager.Create(u, "212Mayday!"));
+
+                //var user = new Models.ApplicationUser { UserName = "maybooher@gmail.com", Email = "maybooher@gmail.com", PhoneNumber = "8018857662" };
+                //userManager.Create(user, "212Mayday!");
             }
-            
+
         }
     }
 }
