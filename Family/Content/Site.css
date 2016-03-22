@@ -79,3 +79,7 @@ ul a:hover {
         max-height: 500px !important;
         max-width: 500px !important;
     }
+
+    nav {
+        padding-right: 1em;
+    }

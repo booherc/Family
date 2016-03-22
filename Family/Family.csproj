@@ -176,6 +176,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603191827355_InitialCreate.cs" />
+    <Compile Include="Migrations\201603191827355_InitialCreate.Designer.cs">
+      <DependentUpon>201603191827355_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -251,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\FamilyModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -264,6 +270,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603191827355_InitialCreate.resx">
+      <DependentUpon>201603191827355_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
