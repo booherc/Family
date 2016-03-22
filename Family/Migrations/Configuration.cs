@@ -44,13 +44,31 @@ namespace Family.Migrations
                         Address = "371 E 1550 S",
                         City = "Orem",
                         State = "UT",
-                    BirthDate = DateTime.Parse("08/24/1992")},
+                        BirthDate = DateTime.Parse("08/24/1992"),
+                        Zipcode = "84058"},
 
-                    new Models.ApplicationUser { UserName = "booher.cody@gmail.com", Email = "booher.cody@gmail.com", PhoneNumber = "4804351882", FirstName = "Cody", LastName = "Booher"},
+                    new Models.ApplicationUser { UserName = "booher.cody@gmail.com",
+                        Email = "booher.cody@gmail.com",
+                        PhoneNumber = "4804351882",
+                        FirstName = "Cody",
+                        LastName = "Booher",
+                        Address = "371 E 1550 S",
+                        City = "Orem",
+                        State = "UT",
+                        BirthDate = DateTime.Parse("08/24/1992"),
+                        Zipcode = "84058"},
 
-                    new Models.ApplicationUser { UserName = "brittbooher@cox.net", Email = "brittbooher@cox.net", PhoneNumber = "4802209995", FirstName = "Britt", LastName = "Booher"},
+                    new Models.ApplicationUser { UserName = "brittbooher@cox.net",
+                        Email = "brittbooher@cox.net",
+                        PhoneNumber = "4802209995",
+                        FirstName = "Britt",
+                        LastName = "Booher"},
 
-                    new Models.ApplicationUser { UserName = "brockbooher@cox.net", Email = "brockbooher@cox.net", PhoneNumber = "480220614", FirstName = "Brock", LastName = "Booher"}
+                    new Models.ApplicationUser { UserName = "brockbooher@cox.net",
+                        Email = "brockbooher@cox.net",
+                        PhoneNumber = "480220614",
+                        FirstName = "Brock",
+                        LastName = "Booher"}
                 };
 
                 users.ForEach(u => userManager.Create(u, "212Mayday!"));
