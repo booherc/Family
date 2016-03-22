@@ -45,11 +45,7 @@ namespace Family.Migrations
                         LockoutEndDateUtc = c.DateTime(),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
-                        StreetAddress = c.String(nullable: true),
-                        City = c.String(nullable: true),
-                        State = c.String(nullable: true, maxLength: 2),
-                        ZipCode = c.Int(nullable: true)
+                        UserName = c.String(nullable: false, maxLength: 256)
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");

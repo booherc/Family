@@ -13,6 +13,7 @@ namespace Family.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "Family.Models.ApplicationDbContext";
         }
 
@@ -35,10 +36,21 @@ namespace Family.Migrations
                 var userManager = new UserManager<Models.ApplicationUser>(userStore);
                 List<Models.ApplicationUser> users = new List<Models.ApplicationUser>
                 {
-                  new Models.ApplicationUser { UserName = "maybooher@gmail.com", Email = "maybooher@gmail.com", PhoneNumber = "8018857662"},
-                  new Models.ApplicationUser { UserName = "booher.cody@gmail.com", Email = "booher.cody@gmail.com", PhoneNumber = "4804351882"},
-                  new Models.ApplicationUser { UserName = "brittbooher@cox.net", Email = "brittbooher@cox.net", PhoneNumber = "4802209995"},
-                  new Models.ApplicationUser { UserName = "brockbooher@cox.net", Email = "brockbooher@cox.net", PhoneNumber = "480220614"}
+                    new Models.ApplicationUser { UserName = "maybooher@gmail.com",
+                        Email = "maybooher@gmail.com",
+                        PhoneNumber = "8018857662",
+                        FirstName = "Maylyn",
+                        LastName = "Booher",
+                        Address = "371 E 1550 S",
+                        City = "Orem",
+                        State = "UT",
+                    BirthDate = DateTime.Parse("08/24/1992")},
+
+                    new Models.ApplicationUser { UserName = "booher.cody@gmail.com", Email = "booher.cody@gmail.com", PhoneNumber = "4804351882", FirstName = "Cody", LastName = "Booher"},
+
+                    new Models.ApplicationUser { UserName = "brittbooher@cox.net", Email = "brittbooher@cox.net", PhoneNumber = "4802209995", FirstName = "Britt", LastName = "Booher"},
+
+                    new Models.ApplicationUser { UserName = "brockbooher@cox.net", Email = "brockbooher@cox.net", PhoneNumber = "480220614", FirstName = "Brock", LastName = "Booher"}
                 };
 
                 users.ForEach(u => userManager.Create(u, "212Mayday!"));

@@ -5,7 +5,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 
 namespace Family.Models
 {
@@ -36,13 +35,12 @@ namespace Family.Models
 
         [Display(Name = "Zipcode")]
         [MaxLength(5)]
-        public int Zipcode { get; set; }
+        public string Zipcode { get; set; }
 
         [Display(Name = "Birth Date")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
-        [Display(Name = "Profile Picture")]
-        public Image Image { get; set; }
+        public string ImagePath { get; set; }
 
         public bool IsArchived { get; set; }
 
