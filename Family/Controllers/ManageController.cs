@@ -104,7 +104,10 @@ namespace Family.Controllers
         public ActionResult Users()
         {
             var users = UserManager.Users.Where(x => x.Id != "").ToList();
-
+            //foreach (var user in users)
+            //{
+            //    user.
+            //}
             return View(users);
         }
 

@@ -36,42 +36,52 @@ namespace Family.Migrations
                 var userManager = new UserManager<Models.ApplicationUser>(userStore);
                 List<Models.ApplicationUser> users = new List<Models.ApplicationUser>
                 {
-                    new Models.ApplicationUser { UserName = "maybooher@gmail.com",
-                        Email = "maybooher@gmail.com",
-                        PhoneNumber = "8018857662",
-                        FirstName = "Maylyn",
+                    new Models.ApplicationUser { UserName = "mb@gmail.com",
+                        Email = "mb@gmail.com",
+                        PhoneNumber = "5555555555",
+                        FirstName = "Max",
                         LastName = "Booher",
-                        Address = "371 E 1550 S",
-                        City = "Orem",
-                        State = "UT",
-                        BirthDate = DateTime.Parse("08/24/1992"),
-                        Zipcode = "84058"},
+                        Address = "123 Yo Yo Way",
+                        City = "China",
+                        State = "WY",
+                        BirthDate = DateTime.Parse("02/22/1999"),
+                        Zipcode = "12345"},
 
                     new Models.ApplicationUser { UserName = "booher.cody@gmail.com",
                         Email = "booher.cody@gmail.com",
-                        PhoneNumber = "4804351882",
+                        PhoneNumber = "5555555555",
                         FirstName = "Cody",
                         LastName = "Booher",
-                        Address = "371 E 1550 S",
-                        City = "Orem",
-                        State = "UT",
-                        BirthDate = DateTime.Parse("08/24/1992"),
-                        Zipcode = "84058"},
+                        Address = "123 Yo Yo Way",
+                        City = "China",
+                        State = "WY",
+                        BirthDate = DateTime.Parse("02/22/1999"),
+                        Zipcode = "12345"},
 
-                    new Models.ApplicationUser { UserName = "brittbooher@cox.net",
-                        Email = "brittbooher@cox.net",
+                    new Models.ApplicationUser { UserName = "nb@cox.net",
+                        Email = "nb@cox.net",
                         PhoneNumber = "4802209995",
-                        FirstName = "Britt",
-                        LastName = "Booher"},
+                        FirstName = "Nimble",
+                        LastName = "Booher",
+                        Address = "123 Yo Yo Way",
+                        City = "China",
+                        State = "WY",
+                        BirthDate = DateTime.Parse("02/22/1999"),
+                        Zipcode = "12345"},
 
-                    new Models.ApplicationUser { UserName = "brockbooher@cox.net",
-                        Email = "brockbooher@cox.net",
+                    new Models.ApplicationUser { UserName = "gb@cox.net",
+                        Email = "gb@cox.net",
                         PhoneNumber = "480220614",
-                        FirstName = "Brock",
-                        LastName = "Booher"}
+                        FirstName = "Goober",
+                        LastName = "Booher",
+                        Address = "123 Yo Yo Way",
+                        City = "China",
+                        State = "WY",
+                        BirthDate = DateTime.Parse("02/22/1999"),
+                        Zipcode = "12345"}
                 };
 
-                users.ForEach(u => userManager.Create(u, "212Mayday!"));
+                users.ForEach(u => userManager.Create(u, "123Test!"));
             }
 
         }
