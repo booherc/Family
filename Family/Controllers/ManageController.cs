@@ -104,11 +104,26 @@ namespace Family.Controllers
         public ActionResult Users()
         {
             var users = UserManager.Users.Where(x => x.Id != "").ToList();
-            //foreach (var user in users)
-            //{
-            //    user.
-            //}
             return View(users);
+        }
+
+        //
+        // GET: /Manage/UserDetails
+        public ActionResult UserDetails(string id)
+        {
+            var user = UserManager.Users.Where(x => x.Id == id).FirstOrDefault();
+            DetailsViewModel userDetails = new DetailsViewModel
+            {
+                Name = user.FullName,
+                Address = user.Address + " " + user.Address2,
+                City = user.City,
+                State = user.State,
+                Zipcode = user.Zipcode,
+                Phone = user.PhoneNumber,
+                Email = user.Email
+            };
+
+            return View(userDetails);
         }
 
         //

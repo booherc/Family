@@ -23,7 +23,7 @@
         @foreach (ApplicationUser user in Model)
         {
             <tr>
-                <td>@user.FullName</td>
+                <td><a href="/Manage/UserDetails/@user.Id">@user.FullName</a></td>
                 <td>@user.Email</td>
                 <td>@user.PhoneNumber</td>
                 <td>@user.Address @user.Address2</td>

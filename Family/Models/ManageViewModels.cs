@@ -14,6 +14,18 @@ namespace Family.Models
         public bool BrowserRemembered { get; set; }
     }
 
+    public class DetailsViewModel
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zipcode { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string ImagePath { get; set; }
+    }
+
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
