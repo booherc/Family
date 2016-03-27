@@ -1,0 +1,40 @@
+﻿@model Family.Models.DetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #map {
+        width: 500px;
+        height: 400px;
+    }
+    .col { 
+        font-size: large;
+    }
+</style>
+
+<h2>@Model.Name</h2>
+<div class="row">
+    <div class="col m6">
+        <img src="@Model.ImagePath" />
+        @Model.Email <br />
+        @Model.Phone<br />
+        @Model.Address<br />
+        @Model.City,&nbsp; @Model.State &nbsp; @Model.Zipcode
+    </div>
+
+    <div class="col m6">
+        <div id="map"></div>
+    </div>
+</div>
+<script>
+    function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: { lat: 44.540, lng: -78.546 },
+            zoom: 8
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
