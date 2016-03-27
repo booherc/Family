@@ -108,6 +108,14 @@ namespace Family.Controllers
         }
 
         //
+        // GET: /Manage/Users
+        public ActionResult Edit(string id)
+        {
+            var user = UserManager.Users.Where(x => x.Id == id).FirstOrDefault();
+            return View(user);
+        }
+
+        //
         // GET: /Manage/UserDetails
         public ActionResult UserDetails(string id)
         {
