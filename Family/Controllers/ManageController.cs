@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Family.Models;
+using System.Data.Entity;
 
 namespace Family.Controllers
 {
@@ -15,6 +16,7 @@ namespace Family.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db;
 
         public ManageController()
         {
@@ -108,11 +110,28 @@ namespace Family.Controllers
         }
 
         //
-        // GET: /Manage/Users
+        // GET: /Manage/Edit
         public ActionResult Edit(string id)
         {
             var user = UserManager.Users.Where(x => x.Id == id).FirstOrDefault();
             return View(user);
+        }
+
+        //
+        // GET: /Manage/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ApplicationUser user)
+        {
+            if (ModelState.IsValid){
+                var existingUser = db.Users.Where(u => u.Id == user.Id).FirstOrDefault();
+                existingUser = user;
+                
+                db.Entry(existingUser).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            
+            return RedirectToAction("Users");
         }
 
         //
