@@ -1,0 +1,41 @@
+﻿@using Family.Models
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Booher Family Contact Sheet</h2>
+<table class="striped">
+    <thead>
+        <tr>
+            <th data-field="Full Name">Full Name</th>
+            <th data-field="Email">Email</th>
+            <th data-field="Phone">Phone</th>
+            <th data-field="Address">Address</th>
+            <th data-field="City">City</th>
+            <th data-field="State">State</th>
+            <th data-field="Zipcode">Zipcode</th>
+            <th data-field="BirthDate">Birthday</th>
+            <th data-field="Actions">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ApplicationUser user in Model)
+        {
+            <tr>
+                <td><a href="/Manage/UserDetails/@user.Id">@user.FullName</a></td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Address @user.Address2</td>
+                <td>@user.City</td>
+                <td>@user.State</td>
+                <td>@user.Zipcode</td>
+                <td>@user.BirthDate</td>
+                <td>
+                    <a href="/Manage/Edit/@user.Id"><i class="material-icons">mode_edit</i></a>
+                    <i class="material-icons">clear</i>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

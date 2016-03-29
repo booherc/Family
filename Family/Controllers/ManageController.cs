@@ -136,12 +136,7 @@ namespace Family.Controllers
                 existingUser.Email = user.Email;
                 existingUser.PhoneNumber = user.PhoneNumber;
                 existingUser.UserName = user.UserName;
-
-                //var db = new ApplicationDbContext();
-                //db.Entry(existingUser).State = EntityState.Modified;
-                //db.SaveChanges();
                 UserManager.Update(existingUser);
-                //db.SaveChanges();
             }
 
             return RedirectToAction("Users");
