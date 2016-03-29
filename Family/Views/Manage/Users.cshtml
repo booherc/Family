@@ -31,7 +31,10 @@
                 <td>@user.State</td>
                 <td>@user.Zipcode</td>
                 <td>@user.BirthDate</td>
-                <td><i class="material-icons">mode_edit</i> <i class="material-icons">clear</i></td>
+                <td>
+                    <a href="/Manage/Edit/@user.Id"><i class="material-icons">mode_edit</i></a>
+                    <i class="material-icons">clear</i>
+                </td>
             </tr>
         }
     </tbody>

@@ -16,7 +16,7 @@ namespace Family.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationDbContext db;
+
 
         public ManageController()
         {
@@ -34,9 +34,9 @@ namespace Family.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -123,14 +123,27 @@ namespace Family.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ApplicationUser user)
         {
-            if (ModelState.IsValid){
-                var existingUser = db.Users.Where(u => u.Id == user.Id).FirstOrDefault();
-                existingUser = user;
-                
-                db.Entry(existingUser).State = EntityState.Modified;
-                db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var existingUser = UserManager.Users.Where(x => x.Id == user.Id).FirstOrDefault();
+                existingUser.FirstName = user.FirstName;
+                existingUser.LastName = user.LastName;
+                existingUser.Address = user.Address;
+                existingUser.Address2 = user.Address2;
+                existingUser.City = user.City;
+                existingUser.State = user.State;
+                existingUser.Zipcode = user.Zipcode;
+                existingUser.Email = user.Email;
+                existingUser.PhoneNumber = user.PhoneNumber;
+                existingUser.UserName = user.UserName;
+
+                //var db = new ApplicationDbContext();
+                //db.Entry(existingUser).State = EntityState.Modified;
+                //db.SaveChanges();
+                UserManager.Update(existingUser);
+                //db.SaveChanges();
             }
-            
+
             return RedirectToAction("Users");
         }
 
@@ -385,7 +398,7 @@ namespace Family.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -436,6 +449,6 @@ namespace Family.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
