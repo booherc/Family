@@ -30,6 +30,7 @@ namespace Family.Migrations
             //  to avoid creating duplicate seed data. E.g.
             //
 
+
             if (!(context.Users.Any(u => u.UserName == "booher.cody@gmail.com")))
             {
                 var userStore = new UserStore<Models.ApplicationUser>(context);
