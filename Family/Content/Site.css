@@ -134,3 +134,7 @@ nav {
 .user-details-col {
     font-size: large;
 }
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(25, 118, 210, 0.65) !important;
+}
