@@ -28,10 +28,20 @@ namespace Family.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+
+            var userStore = new UserStore<Models.ApplicationUser>(context);
+            var userManager = new UserManager<Models.ApplicationUser>(userStore);
             if (!(context.Users.Any(u => u.UserName == "booher.cody@gmail.com")))
             {
-                var userStore = new UserStore<Models.ApplicationUser>(context);
-                var userManager = new UserManager<Models.ApplicationUser>(userStore);
+                
                 List<Models.ApplicationUser> users = new List<Models.ApplicationUser>
                 {
                     new Models.ApplicationUser { UserName = "mb@gmail.com",
@@ -81,6 +91,49 @@ namespace Family.Migrations
 
                 users.ForEach(u => userManager.Create(u, "123Test!"));
             }
+
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            var codyUser = userManager.Users.Where(u => u.UserName == "booher.cody@gmail.com").FirstOrDefault();
+            context.Posts.AddOrUpdate(
+               p => p.PostId,
+               new Models.Post
+               {
+                   AuthorID = codyUser.Id,
+                   Author = codyUser,
+                   PostTime = DateTime.Now,
+                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+                   Title = "Long Live Lorem Ipsum"
+               },
+               new Models.Post
+               {
+                   AuthorID = codyUser.Id,
+                   Author = codyUser,
+                   PostTime = DateTime.Now,
+                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+                   Title = "Long Live Lorem Ipsum"
+               },
+               new Models.Post
+               {
+                   AuthorID = codyUser.Id,
+                   Author = codyUser,
+                   PostTime = DateTime.Now,
+                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+                   Title = "Long Live Lorem Ipsum"
+               },
+               new Models.Post
+               {
+                   AuthorID = codyUser.Id,
+                   Author = codyUser,
+                   PostTime = DateTime.Now,
+                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+                   Title = "Long Live Lorem Ipsum"
+               }
+               );
 
         }
     }

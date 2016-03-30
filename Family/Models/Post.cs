@@ -16,7 +16,11 @@ namespace Family.Models
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public ApplicationUser Author { get; set; }
+        [Required]
+        [ForeignKey("Author")]
+        public string AuthorID { get; set; }
+        public virtual ApplicationUser Author { get; set; }
+
         public DateTime PostTime { get; set; }
     }
 }
