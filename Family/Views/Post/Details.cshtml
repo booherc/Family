@@ -1,0 +1,17 @@
+﻿@model Family.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card hoverable blue darken-2">
+    <div class="card-content white-text">
+        <span class="card-title">@Html.DisplayFor(modelItem => Model.Title)</span>
+        <p>By @Html.DisplayFor(modelItem => Model.Author.FirstName) at @Html.DisplayFor(modelItem => Model.PostTime)</p><br />
+        <p class="">@Html.DisplayFor(modelItem => Model.Content)</p><br />
+    </div>
+    <div class="card-action">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
+        @Html.ActionLink("Back to Posts", "Index","", new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
+    </div>
+</div>

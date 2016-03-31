@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-
+using System.Data.Entity;
 
 namespace Family.Controllers
 {
@@ -23,7 +23,8 @@ namespace Family.Controllers
         // GET: Post/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var post = db.Posts.Include("Author").Where(p => p.PostId == id).FirstOrDefault();
+            return View(post);
         }
 
         // GET: Post/Create
@@ -54,18 +55,27 @@ namespace Family.Controllers
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var post = db.Posts.Include("Author").Where(p => p.PostId == id).FirstOrDefault();
+            if (post.AuthorID == User.Identity.GetUserId())
+            {
+                return View(post);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Post post)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (post.AuthorID == User.Identity.GetUserId())
+                {
+                    db.Entry(post).State = EntityState.Modified;
+                    db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                return View();
             }
             catch
             {
