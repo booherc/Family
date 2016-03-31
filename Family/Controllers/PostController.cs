@@ -14,8 +14,7 @@ namespace Family.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            var allPosts = db.Posts.Where(p => p.PostId > 0);
-
+            var allPosts = db.Posts.Include("Author").Where(p => p.PostId > 0);
             return View(allPosts);
         }
 

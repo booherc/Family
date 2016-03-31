@@ -16,13 +16,13 @@
     <div class="card blue darken-2">
         <div class="card-content white-text">
             <span class="card-title">@Html.DisplayFor(modelItem => item.Title)</span>
-            <p>By @Html.DisplayFor(modelItem => item.Author.FullName) at @Html.DisplayFor(modelItem => item.PostTime)</p><br />
+            <p>By @Html.DisplayFor(modelItem => item.Author.FirstName) at @Html.DisplayFor(modelItem => item.PostTime)</p><br />
             <p>@Html.DisplayFor(modelItem => item.Content)</p><br />
         </div>
         <div class="card-action">
-            @Html.ActionLink("See Full Post", "Details", new { id = item.PostId }, new { @class = "btn white blue-text waves-effect waves-blue waves-ripple" })
-            @Html.ActionLink("Edit", "Edit", new { id = item.PostId }, new { @class = "btn white blue-text waves-effect waves-blue waves-ripple" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.PostId }, new { @class = "btn white blue-text waves-effect waves-blue waves-ripple" })
+            @Html.ActionLink("See Full Post", "Details", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
         </div>
     </div>
 }
