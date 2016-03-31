@@ -15,11 +15,11 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 a:hover {
     text-decoration: none;
@@ -45,6 +45,20 @@ ul a:hover {
 }
 /* valid color */
 .input-field input[type=text].valid {
+    border-bottom: 1px solid #1976D2 !important;
+    box-shadow: 0 1px 0 0 #1976D2 !important;
+}
+
+.input-field textarea[typeof=text]:focus + label {
+    color: #1976D2 !important;
+}
+/* label underline focus color */
+.input-field textarea[typeof=text]:focus {
+    border-bottom: 1px solid #1976D2 !important;
+    box-shadow: 0 1px 0 0 #1976D2 !important;
+}
+/* valid color */
+.input-field textarea[typeof=text].valid {
     border-bottom: 1px solid #1976D2 !important;
     box-shadow: 0 1px 0 0 #1976D2 !important;
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+
 
 namespace Family.Controllers
 {
@@ -14,7 +16,7 @@ namespace Family.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            var allPosts = db.Posts.Include("Author").Where(p => p.PostId > 0);
+            var allPosts = db.Posts.Include("Author").Where(p => p.PostId > 0).OrderByDescending(p => p.PostTime);
             return View(allPosts);
         }
 
@@ -25,18 +27,21 @@ namespace Family.Controllers
         }
 
         // GET: Post/Create
-        public ActionResult Create()
+        public ActionResult AddPost()
         {
             return View();
         }
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddPost(Post post)
         {
             try
             {
-                // TODO: Add insert logic here
+                post.PostTime = DateTime.Now;
+                post.AuthorID = User.Identity.GetUserId();
+                db.Posts.Add(post);
+                db.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }

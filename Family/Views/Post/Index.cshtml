@@ -6,18 +6,19 @@
 }
 <h2>Booher Family News</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create","", new { @class = "waves-effect waves-light btn" })
-</p>
+
+<div class="row">
+    <a class="waves-effect waves-light btn right" href="@Url.Action("AddPost", "Post")"><i class="material-icons left">add</i>Add New Post</a>
+</div>
 
 
 @foreach (var item in Model)
 {
-    <div class="card blue darken-2">
+    <div class="card hoverable blue darken-2">
         <div class="card-content white-text">
             <span class="card-title">@Html.DisplayFor(modelItem => item.Title)</span>
             <p>By @Html.DisplayFor(modelItem => item.Author.FirstName) at @Html.DisplayFor(modelItem => item.PostTime)</p><br />
-            <p>@Html.DisplayFor(modelItem => item.Content)</p><br />
+            <p class="truncate">@Html.DisplayFor(modelItem => item.Content)</p><br />
         </div>
         <div class="card-action">
             @Html.ActionLink("See Full Post", "Details", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })

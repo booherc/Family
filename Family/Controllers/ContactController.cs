@@ -72,7 +72,7 @@ namespace Family.Controllers
                 UserManager.Update(existingUser);
             }
 
-            return RedirectToAction("Users");
+            return RedirectToAction("Index");
         }
 
         //
