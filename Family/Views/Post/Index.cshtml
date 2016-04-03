@@ -26,6 +26,7 @@
             @if (item.AuthorID == User.Identity.GetUserId())
             {
                 @Html.ActionLink("Edit", "Edit", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
+
                 @Html.ActionLink("Delete", "Delete", new { id = item.PostId }, new { @class = "btn white black-text waves-effect waves-blue waves-ripple" })
             }
         </div>

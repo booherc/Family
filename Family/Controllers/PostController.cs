@@ -16,14 +16,14 @@ namespace Family.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            var allPosts = db.Posts.Include("Author").Where(p => p.PostId > 0).OrderByDescending(p => p.PostTime);
+            var allPosts = db.Posts.Where(p => p.PostId > 0).OrderByDescending(p => p.PostTime).ToList();
             return View(allPosts);
         }
 
         // GET: Post/Details/5
         public ActionResult Details(int id)
         {
-            var post = db.Posts.Include("Author").Where(p => p.PostId == id).FirstOrDefault();
+            var post = db.Posts.Where(p => p.PostId == id).FirstOrDefault();
             return View(post);
         }
 
@@ -55,7 +55,7 @@ namespace Family.Controllers
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            var post = db.Posts.Include("Author").Where(p => p.PostId == id).FirstOrDefault();
+            var post = db.Posts.Where(p => p.PostId == id).FirstOrDefault();
             if (post.AuthorID == User.Identity.GetUserId())
             {
                 return View(post);

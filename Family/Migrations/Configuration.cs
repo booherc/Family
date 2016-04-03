@@ -98,42 +98,42 @@ namespace Family.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            var codyUser = userManager.Users.Where(u => u.UserName == "booher.cody@gmail.com").FirstOrDefault();
-            context.Posts.AddOrUpdate(
-               p => p.PostId,
-               new Models.Post
-               {
-                   AuthorID = codyUser.Id,
-                   Author = codyUser,
-                   PostTime = DateTime.Now,
-                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
-                   Title = "Long Live Lorem Ipsum"
-               },
-               new Models.Post
-               {
-                   AuthorID = codyUser.Id,
-                   Author = codyUser,
-                   PostTime = DateTime.Now,
-                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
-                   Title = "Long Live Lorem Ipsum"
-               },
-               new Models.Post
-               {
-                   AuthorID = codyUser.Id,
-                   Author = codyUser,
-                   PostTime = DateTime.Now,
-                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
-                   Title = "Long Live Lorem Ipsum"
-               },
-               new Models.Post
-               {
-                   AuthorID = codyUser.Id,
-                   Author = codyUser,
-                   PostTime = DateTime.Now,
-                   Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
-                   Title = "Long Live Lorem Ipsum"
-               }
-               );
+            //var codyUser = userManager.Users.Where(u => u.UserName == "booher.cody@gmail.com").FirstOrDefault();
+            //context.Posts.AddOrUpdate(
+            //   p => p.PostId,
+            //   new Models.Post
+            //   {
+            //       AuthorID = codyUser.Id,
+            //       Author = codyUser,
+            //       PostTime = DateTime.Now,
+            //       Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+            //       Title = "Long Live Lorem Ipsum"
+            //   },
+            //   new Models.Post
+            //   {
+            //       AuthorID = codyUser.Id,
+            //       Author = codyUser,
+            //       PostTime = DateTime.Now,
+            //       Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+            //       Title = "Long Live Lorem Ipsum"
+            //   },
+            //   new Models.Post
+            //   {
+            //       AuthorID = codyUser.Id,
+            //       Author = codyUser,
+            //       PostTime = DateTime.Now,
+            //       Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+            //       Title = "Long Live Lorem Ipsum"
+            //   },
+            //   new Models.Post
+            //   {
+            //       AuthorID = codyUser.Id,
+            //       Author = codyUser,
+            //       PostTime = DateTime.Now,
+            //       Content = "Lorem ipsum dolor sit amet, legere aliquip et pro, eos mundi accommodare ut. Noster bonorum minimum vim ad, vitae alterum facilisi ei has. Falli nostrum et eos. In vix quando graecis nostrum, vim ludus dictas torquatos ut, erat molestiae disputationi ea mel.",
+            //       Title = "Long Live Lorem Ipsum"
+            //   }
+            //   );
 
         }
     }
