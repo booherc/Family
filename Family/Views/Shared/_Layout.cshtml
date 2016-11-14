@@ -13,14 +13,12 @@
 <body>
     <nav class="blue">
         <div class="nav-wrapper">
-            @Html.ActionLink("Booher Family", "Index", "Home", new { area = "" }, new { @class = "brand-logo center" })
+            @Html.ActionLink("Coding for Kids", "Index", "Home", new { area = "" }, new { @class = "brand-logo center" })
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
                 @if (Request.IsAuthenticated)
                 {
-                    <li>@Html.ActionLink("Contacts", "Index", "Contact")</li>
-                    <li>@Html.ActionLink("Posts", "Index", "Post")</li>
+                    <li>@Html.ActionLink("Students", "Index", "Contact")</li>
                 }
             </ul>
             @Html.Partial("_LoginPartial")
@@ -30,7 +28,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Cody Booher</p>
+            <p>&copy; @DateTime.Now.Year - Cody Booher and Jimmy Marchant</p>
         </footer>
     </div>
 
